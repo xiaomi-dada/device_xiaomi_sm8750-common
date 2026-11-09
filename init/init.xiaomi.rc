@@ -1,0 +1,9 @@
+#
+# SPDX-FileCopyrightText: The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
+#
+
+on boot
+    # Charging control (Lineage health)
+    chown system system /sys/class/xm_power/charger/charge_interface/charge_enable
+    chmod 0660 /sys/class/xm_power/charger/charge_interface/charge_enable

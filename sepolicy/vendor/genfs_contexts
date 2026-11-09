@@ -1,0 +1,15 @@
+# Fingerprint
+genfscon sysfs /devices/platform/soc/soc:xiaomi_fingerprint                     u:object_r:vendor_sysfs_xiaomi_fingerprint:s0
+genfscon sysfs /devices/virtual/xiaomi_fp                                       u:object_r:vendor_sysfs_xiaomi_fingerprint:s0
+
+# Touch
+genfscon sysfs /devices/virtual/touch                                           u:object_r:vendor_sysfs_xiaomi_touch:s0
+
+# Xiaomi charger management (mca)
+genfscon sysfs /devices/platform/soc/soc:mca_business_charger                   u:object_r:vendor_sysfs_xm_power:s0
+genfscon sysfs /devices/platform/soc/soc:mca_charge_interface                   u:object_r:vendor_sysfs_xm_power:s0
+genfscon sysfs /devices/platform/soc/soc:mca_strategy_basic_wireless_class      u:object_r:vendor_sysfs_xm_power:s0
+genfscon sysfs /devices/platform/soc/soc:mca_strategy_pd_auth                   u:object_r:vendor_sysfs_xm_power:s0
+genfscon sysfs /devices/platform/soc/soc:mca_strategy_quick_charge              u:object_r:vendor_sysfs_xm_power:s0
+genfscon sysfs /devices/platform/soc/soc:mca_strategy_wireless_revchg_class     u:object_r:vendor_sysfs_xm_power:s0
+genfscon sysfs /devices/virtual/xm_power                                        u:object_r:vendor_sysfs_xm_power:s0

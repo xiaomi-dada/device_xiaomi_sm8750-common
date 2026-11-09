@@ -1,0 +1,14 @@
+# Chipset
+ro.soc.model=SM8750
+
+# Framework detection
+ro.vendor.qti.va_odm.support=1
+
+# Radio
+ro.telephony.default_network=33,33
+
+# SSR
+persist.vendor.ssr.restart_level=ALL_ENABLE
+
+# Widevine
+vendor.wv.oemcrypto.debug.enable_prov40=true
