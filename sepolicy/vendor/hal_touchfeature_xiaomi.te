@@ -2,3 +2,5 @@ binder_call(hal_touchfeature_xiaomi_client, hal_touchfeature_xiaomi_server)
 binder_call(hal_touchfeature_xiaomi_server, hal_touchfeature_xiaomi_client)
 
 hal_attribute_service(hal_touchfeature_xiaomi, hal_touchfeature_xiaomi_service)
+
+binder_use(hal_touchfeature_xiaomi_server)

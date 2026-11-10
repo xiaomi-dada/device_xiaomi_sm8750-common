@@ -44,7 +44,6 @@ ro.camerax.extensions.enabled=true
 ro.soc.manufacturer=QTI
 
 # Display
-persist.demo.hdmirotationlock=false
 persist.sys.sf.color_mode=0
 persist.sys.sf.color_saturation=1.0
 vendor.display.comp_mask=0
