@@ -1,5 +1,8 @@
+allow hal_camera_default self:capability ipc_lock;
+
 # Xiaomi camera services registered by the camera provider
 add_service(hal_camera_default, hal_aidlbgservice_service)
+add_service(hal_camera_default, hal_camera_aon_service)
 add_service(hal_camera_default, hal_dynamic_camera_service)
 add_service(hal_camera_default, hal_quickcamera_service)
 
@@ -10,5 +13,11 @@ r_dir_file(hal_camera_default, vendor_persist_sensors_file)
 # Local sockets in /data/vendor/camera
 allow hal_camera_default vendor_camera_data_file:sock_file create_file_perms;
 
-# The provider publishes the XDR version it supports
+# The provider publishes the XDR version it supports and per sensor info
+set_prop(hal_camera_default, vendor_camera_sensor_prop)
 set_prop(hal_camera_default, vendor_camera_xdrversion_prop)
+
+# libcameraopt waits for and uses the camera BPF program from /vendor/etc/bpf
+typeattribute hal_camera_default bpfdomain;
+allow hal_camera_default fs_bpf_vendor:dir search;
+allow hal_camera_default fs_bpf_vendor:file read;
