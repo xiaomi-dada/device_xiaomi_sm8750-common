@@ -103,6 +103,7 @@ vendor/lib64/soundfx/libvolumelistener.so;DISABLE_DEPS
 
 # Bluetooth
 vendor/bin/hw/android.hardware.bluetooth@aidl-service-qti
+vendor/etc/init/android.hardware.bluetooth@aidl-service-qti-debug.rc
 vendor/etc/vintf/manifest/bluetooth-finder.xml
 vendor/etc/vintf/manifest/bluetooth_hci.xml
 vendor/etc/vintf/manifest/bluetooth_sar.xml
