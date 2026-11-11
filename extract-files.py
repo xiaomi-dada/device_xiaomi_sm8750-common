@@ -116,7 +116,8 @@ blob_fixups: blob_fixups_user_type = {
     'system_ext/priv-app/ims/ims.apk': blob_fixup()
         .apktool_unpack('blob-patches/ims')
         .patch_dir('blob-patches/ims')
-        .apktool_pack(),
+        .apktool_pack()
+        .stripzip(),
     'vendor/etc/media_codecs_sun.xml': blob_fixup()
         .regex_replace('.*media_codecs_(google_audio|google_c2|google_telephony|google_video|vendor_audio).*\n', ''),
     'vendor/etc/seccomp_policy/gnss@2.0-qsap-location.policy': blob_fixup()
