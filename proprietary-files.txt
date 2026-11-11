@@ -1174,6 +1174,7 @@ vendor/lib64/libtrustedapploader.so
 vendor/bin/cnss-daemon
 vendor/etc/init/init.vendor.wlan.rc
 vendor/etc/wifi/p2p_supplicant_overlay.conf
+vendor/etc/wifi/peach_v2/WCNSS_qcom_cfg.ini
 vendor/etc/wifi/vendor_cmd.xml
 vendor/etc/wifi/wpa_supplicant_overlay.conf
 

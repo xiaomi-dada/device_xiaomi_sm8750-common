@@ -385,6 +385,9 @@ $(call inherit-product, packages/modules/Virtualization/apex/product_packages.mk
 # WiFi
 PRODUCT_PACKAGES += \
     android.hardware.wifi-service \
+    firmware_WCNSS_qcom_cfg.ini_symlink \
+    firmware_wlan_mac.bin_symlink \
+    firmware_wlanmdsp.otaupdate_symlink \
     hostapd \
     libwifi-hal-ctrl \
     libwifi-hal-qcom \
