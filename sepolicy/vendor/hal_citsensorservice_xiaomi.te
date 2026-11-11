@@ -1,0 +1,6 @@
+binder_call(hal_citsensorservice_xiaomi_client, hal_citsensorservice_xiaomi_server)
+binder_call(hal_citsensorservice_xiaomi_server, hal_citsensorservice_xiaomi_client)
+
+hal_attribute_service(hal_citsensorservice_xiaomi, hal_citsensorservice_xiaomi_service)
+
+binder_use(hal_citsensorservice_xiaomi_server)

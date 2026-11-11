@@ -13,11 +13,15 @@ r_dir_file(hal_camera_default, vendor_persist_sensors_file)
 # Local sockets in /data/vendor/camera
 allow hal_camera_default vendor_camera_data_file:sock_file create_file_perms;
 
-# The provider publishes the XDR version it supports and per sensor info
+# The provider publishes its P3 and XDR support and per sensor info
+set_prop(hal_camera_default, vendor_camera_p3enable_prop)
 set_prop(hal_camera_default, vendor_camera_sensor_prop)
 set_prop(hal_camera_default, vendor_camera_xdrversion_prop)
 
-# libcameraopt waits for and uses the camera BPF program from /vendor/etc/bpf
+# libcameraopt waits for bpf.progs_loaded while the provider initializes
 typeattribute hal_camera_default bpfdomain;
-allow hal_camera_default fs_bpf_vendor:dir search;
-allow hal_camera_default fs_bpf_vendor:file read;
+
+# Memory and thermal state used to tune processing
+allow hal_camera_default proc_meminfo:file r_file_perms;
+allow hal_camera_default { proc_pressure_cpu proc_pressure_io proc_pressure_mem }:file rw_file_perms;
+r_dir_file(hal_camera_default, vendor_sysfs_battery_supply)

@@ -7,3 +7,7 @@ on boot
     # Charging control (Lineage health)
     chown system system /sys/class/xm_power/charger/charge_interface/charge_enable
     chmod 0660 /sys/class/xm_power/charger/charge_interface/charge_enable
+
+on post-fs-data
+    # The camera provider's offline logger expects this directory to exist
+    mkdir /data/vendor/camera/offlinelog 0770 cameraserver camera

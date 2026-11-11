@@ -3,6 +3,7 @@
 /(odm|vendor/odm)/bin/hw/vendor\.qti\.camera\.provider-service_64     u:object_r:hal_camera_default_exec:s0
 /(odm|vendor/odm)/bin/hw/mfp-daemon                                 u:object_r:vendor_mfp-daemon_exec:s0
 /(odm|vendor/odm)/bin/hw/vendor\.xiaomi\.hw\.touchfeature-service   u:object_r:hal_touchfeature_xiaomi_default_exec:s0
+/(odm|vendor/odm)/bin/hw/vendor\.xiaomi\.sensor\.citsensorservice\.aidl u:object_r:hal_citsensorservice_xiaomi_default_exec:s0
 /vendor/bin/batterysecret                                           u:object_r:batterysecret_exec:s0
 /vendor/bin/hw/android\.hardware\.sensors-service\.xiaomi-multihal  u:object_r:hal_sensors_default_exec:s0
 /vendor/bin/mi_thermald                                             u:object_r:mi_thermald_exec:s0
@@ -15,6 +16,7 @@
 
 # Devices
 /dev/ir_spi                                                         u:object_r:ir_spi_device:s0
+/dev/mi_display/disp_feature                                        u:object_r:vendor_displayfeature_device:s0
 /dev/mifp_id                                                        u:object_r:vendor_fingerprint_device:s0
 /dev/xiaomi-fp                                                      u:object_r:vendor_fingerprint_device:s0
 /dev/xiaomi-thp                                                     u:object_r:touchfeature_device:s0

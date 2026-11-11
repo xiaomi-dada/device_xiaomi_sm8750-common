@@ -1,6 +1,13 @@
 # Camera
+vendor_internal_prop(vendor_camera_p3enable_prop)
 vendor_internal_prop(vendor_camera_sensor_prop)
 vendor_internal_prop(vendor_camera_xdrversion_prop)
 
 # Fingerprint
 vendor_internal_prop(vendor_fp_prop)
+
+# Sensors
+vendor_internal_prop(vendor_cct_prop)
+vendor_internal_prop(vendor_mischeck_prop)
+vendor_internal_prop(vendor_parsedalgo_prop)
+vendor_internal_prop(vendor_usedframebuffer_prop)
