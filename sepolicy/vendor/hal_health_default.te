@@ -1,0 +1,2 @@
+# The usb and wireless power supplies live below the mca charger node
+allow hal_health_default vendor_sysfs_xm_power:dir search;

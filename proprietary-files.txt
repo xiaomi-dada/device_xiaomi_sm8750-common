@@ -447,6 +447,7 @@ vendor/bin/slim_daemon
 vendor/bin/xtra-daemon
 vendor/bin/xtwifi-client
 vendor/etc/apdr.conf
+vendor/etc/gps.conf
 vendor/etc/init/loc-launcher.rc
 vendor/etc/init/vendor.qsap.location.rc
 vendor/etc/lowi.conf
