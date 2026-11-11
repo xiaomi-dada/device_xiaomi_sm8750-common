@@ -5,10 +5,15 @@
 
 #define LOG_TAG "UdfpsHandler.xiaomi_sm8750"
 
+#include <aidl/android/hardware/biometrics/fingerprint/AcquiredInfo.h>
 #include <android-base/file.h>
 #include <android-base/logging.h>
 
+#include <atomic>
+#include <chrono>
 #include <cstring>
+#include <mutex>
+#include <thread>
 
 #include "UdfpsHandler.h"
 
@@ -26,7 +31,19 @@ constexpr int32_t kParamFodPressed = 1;
 
 // The device is sold with either a Qualcomm (QFS4008) or a Goodix ultrasonic
 // sensor, each driven by its own HAL module.
+constexpr const char* kGoodixModuleName = "Goodix Fingerprint HAL";
 constexpr const char* kQcomModuleName = "Qcom Fingerprint HAL";
+
+// The Goodix HAL module reports a capture that failed on a corrupted SPI
+// transfer with this vendor acquired code while the finger is still down, and
+// does not retry it. Ask for another capture of the same press, a bounded
+// number of times.
+constexpr int32_t kGoodixVendorCodeSpiCrcFailed = 41;
+constexpr int kGoodixCaptureRetries = 2;
+constexpr auto kGoodixCaptureRetryDelay = std::chrono::milliseconds(50);
+// A capture takes longer than this, so a failure reported sooner after a press
+// belongs to the previous one.
+constexpr auto kGoodixMinCaptureTime = std::chrono::milliseconds(50);
 
 // Lets the fingerprint driver and the display know a finger is on the sensor.
 constexpr const char* kFingerDownPath = "/sys/bus/platform/devices/soc:xiaomi_fingerprint/fingerdown";
@@ -43,6 +60,8 @@ void writeNode(const char* path, bool value) {
     }
 }
 
+using ::aidl::android::hardware::biometrics::fingerprint::AcquiredInfo;
+
 }  // namespace
 
 class XiaomiSM8750UdfpsHandler : public UdfpsHandler {
@@ -55,6 +74,7 @@ class XiaomiSM8750UdfpsHandler : public UdfpsHandler {
 
         const char* moduleName = mDevice->common.module->name;
         mDriveIntr2 = moduleName && strcmp(moduleName, kQcomModuleName) == 0;
+        mRetryCrcFailures = moduleName && strcmp(moduleName, kGoodixModuleName) == 0;
         LOG(INFO) << "HAL module: " << (moduleName ? moduleName : "unknown");
     }
 
@@ -64,6 +84,11 @@ class XiaomiSM8750UdfpsHandler : public UdfpsHandler {
         }
 
         LOG(DEBUG) << __func__ << " x: " << x << ", y: " << y;
+        std::lock_guard lock(mCommandMutex);
+        mFingerDown = true;
+        mPressId++;
+        mPressTime = std::chrono::steady_clock::now();
+        mCaptureRetries = 0;
         setFingerDown(true);
         mDevice->extCmd(mDevice, kCommandFodPressX, x);
         mDevice->extCmd(mDevice, kCommandFodPressY, y);
@@ -78,10 +103,34 @@ class XiaomiSM8750UdfpsHandler : public UdfpsHandler {
         }
 
         LOG(DEBUG) << __func__;
+        std::lock_guard lock(mCommandMutex);
+        mFingerDown = false;
+        mPressId++;
         setFingerDown(false);
         mDevice->extCmd(mDevice, kCommandFodPressX, 0);
         mDevice->extCmd(mDevice, kCommandFodPressY, 0);
         mDevice->extCmd(mDevice, kCommandFodPressStatus, kParamFodReleased);
+    }
+
+    // Runs in the HAL module's notify callback. The retry waits for the sensor to
+    // recover from the failed transfer, so it is sent from its own thread.
+    void onAcquired(int32_t result, int32_t vendorCode) override {
+        const uint32_t pressId = mPressId;
+        if (!mRetryCrcFailures || result != static_cast<int32_t>(AcquiredInfo::VENDOR) ||
+            vendorCode != kGoodixVendorCodeSpiCrcFailed || !mFingerDown ||
+            std::chrono::steady_clock::now() - mPressTime.load() < kGoodixMinCaptureTime ||
+            mCaptureRetries.fetch_add(1) >= kGoodixCaptureRetries) {
+            return;
+        }
+
+        LOG(INFO) << "Capture failed on a SPI CRC error, retrying";
+        std::thread([this, pressId] {
+            std::this_thread::sleep_for(kGoodixCaptureRetryDelay);
+            std::lock_guard lock(mCommandMutex);
+            if (mFingerDown && mPressId == pressId) {
+                mDevice->extCmd(mDevice, kCommandFodPressStatus, kParamFodPressed);
+            }
+        }).detach();
     }
 
   private:
@@ -94,6 +143,15 @@ class XiaomiSM8750UdfpsHandler : public UdfpsHandler {
 
     fingerprint_device_t* mDevice = nullptr;
     bool mDriveIntr2 = false;
+    bool mRetryCrcFailures = false;
+
+    // Serializes the commands of a press with those of capture retries, which
+    // are sent from their own thread.
+    std::mutex mCommandMutex;
+    std::atomic<bool> mFingerDown = false;
+    std::atomic<uint32_t> mPressId = 0;
+    std::atomic<std::chrono::steady_clock::time_point> mPressTime;
+    std::atomic<int> mCaptureRetries = 0;
 };
 
 static UdfpsHandler* create() {
