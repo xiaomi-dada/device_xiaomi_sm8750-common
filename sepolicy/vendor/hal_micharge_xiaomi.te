@@ -1,0 +1,6 @@
+binder_call(hal_micharge_xiaomi_client, hal_micharge_xiaomi_server)
+binder_call(hal_micharge_xiaomi_server, hal_micharge_xiaomi_client)
+
+hal_attribute_service(hal_micharge_xiaomi, hal_micharge_xiaomi_service)
+
+binder_use(hal_micharge_xiaomi_server)

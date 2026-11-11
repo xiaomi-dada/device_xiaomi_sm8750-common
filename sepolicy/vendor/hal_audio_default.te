@@ -1,0 +1,3 @@
+# The prebuilt PAL reports active capture to the wireless charger through the
+# Xiaomi charging service, and fails to open the device without it
+hal_client_domain(hal_audio_default, hal_micharge_xiaomi)

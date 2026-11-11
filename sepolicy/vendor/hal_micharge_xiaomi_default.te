@@ -1,0 +1,13 @@
+# Xiaomi charging service: exposes the charger and fuel gauge controls of the
+# Xiaomi power drivers, and tells the wireless charger when audio is active
+type hal_micharge_xiaomi_default, domain;
+hal_server_domain(hal_micharge_xiaomi_default, hal_micharge_xiaomi)
+
+type hal_micharge_xiaomi_default_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hal_micharge_xiaomi_default)
+
+r_dir_file(hal_micharge_xiaomi_default, vendor_sysfs_xm_power)
+allow hal_micharge_xiaomi_default vendor_sysfs_xm_power:file w_file_perms;
+
+r_dir_file(hal_micharge_xiaomi_default, vendor_sysfs_battery_supply)
+r_dir_file(hal_micharge_xiaomi_default, vendor_sysfs_usb_supply)

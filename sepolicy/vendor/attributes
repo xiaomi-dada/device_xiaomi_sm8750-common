@@ -1,2 +1,3 @@
 hal_attribute(citsensorservice_xiaomi)
+hal_attribute(micharge_xiaomi)
 hal_attribute(touchfeature_xiaomi)
