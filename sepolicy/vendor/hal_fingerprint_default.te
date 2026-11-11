@@ -1,0 +1,21 @@
+# Qualcomm ultrasonic sensor (QFS4008): sensor driver and trusted application
+allow hal_fingerprint_default tee_device:chr_file rw_file_perms;
+allow hal_fingerprint_default vendor_qbt_device:chr_file rw_file_perms;
+allow hal_fingerprint_default vendor_dmabuf_qseecom_heap_device:chr_file r_file_perms;
+allow hal_fingerprint_default vendor_dmabuf_qseecom_ta_heap_device:chr_file r_file_perms;
+
+# Finger state lines of the Xiaomi fingerprint driver
+allow hal_fingerprint_default vendor_sysfs_xiaomi_fingerprint:dir search;
+allow hal_fingerprint_default vendor_sysfs_xiaomi_fingerprint:file rw_file_perms;
+
+# Sensor debug data
+allow hal_fingerprint_default vendor_fingerprint_data_file:dir r_dir_perms;
+allow hal_fingerprint_default vendor_fingerprint_data_file:file r_file_perms;
+
+# The HAL module publishes the HAL vendor it opened and registers Xiaomi's
+# fingerprint tunnel and Qualcomm's extension services
+set_prop(hal_fingerprint_default, vendor_fp_prop)
+add_service(hal_fingerprint_default, hal_xiaomi_fingerprint_service)
+
+# Performance boosts while capturing
+hal_client_domain(hal_fingerprint_default, vendor_hal_perf)
