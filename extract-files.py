@@ -87,7 +87,6 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/hw/audio.bluetooth_qti.default.so',
         'vendor/lib64/hw/libaudiocorehal.default.so',
         'vendor/lib64/hw/libaudiocorehal.qti.so',
-        'vendor/lib64/hw/libaudioeffecthal.qti.so',
         'vendor/lib64/libaudio_aidl_conversion_common_ndk_prebuilt.so',
         'vendor/lib64/libaudioplatformconverter.qti.so',
         'vendor/lib64/libbluetooth_audio_session_aidl_prebuilt.so',
@@ -99,11 +98,19 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/soundfx/libqcompostprocbundle.so',
         'vendor/lib64/soundfx/libqcomvisualizer.so',
         'vendor/lib64/soundfx/libqcomvoiceprocessing.so',
-        'vendor/lib64/soundfx/libquasar.so',
         'vendor/lib64/soundfx/libreverbaidl.so',
         'vendor/lib64/soundfx/libvisualizeraidl.so',
         'vendor/lib64/soundfx/libvolumelistener.so',
     ): xiaomi_audio_aidl_fixup(),
+    # tinyxml2 11 widened the XMLDocument members, so blobs built against the
+    # older headers need the matching library.
+    (
+        'vendor/lib64/hw/libaudioeffecthal.qti.so',
+        'vendor/lib64/soundfx/libquasar.so',
+    ): xiaomi_audio_aidl_fixup()
+        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
+    'vendor/lib64/libaudiocloudctrl.so': blob_fixup()
+        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
     'system_ext/lib64/libwfdnative.so': blob_fixup()
         .add_needed('libinput_shim.so'),
     'vendor/etc/media_codecs_sun.xml': blob_fixup()
