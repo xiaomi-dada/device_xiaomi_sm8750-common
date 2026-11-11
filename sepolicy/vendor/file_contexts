@@ -10,6 +10,7 @@
 /vendor/bin/mi_thermald                                             u:object_r:mi_thermald_exec:s0
 
 # Data
+/data/vendor/fpdump(/.*)?                                           u:object_r:vendor_fingerprint_data_file:s0
 /data/vendor/misc/mi_fp(/.*)?                                       u:object_r:vendor_fingerprint_data_file:s0
 /data/vendor/thermal(/.*)?                                          u:object_r:thermal_data_file:s0
 /data/vendor/touch(/.*)?                                            u:object_r:vendor_touch_data_file:s0
@@ -26,5 +27,6 @@
 /dev/xiaomi-touch-knock                                             u:object_r:touchfeature_device:s0
 
 # Persist
+/mnt/vendor/persist/fingerprint(/.*)?                               u:object_r:vendor_fingerprint_data_file:s0
 /mnt/vendor/persist/mi_fp(/.*)?                                     u:object_r:vendor_fingerprint_data_file:s0
 /mnt/vendor/persist/touch(/.*)?                                     u:object_r:persist_touch_file:s0
