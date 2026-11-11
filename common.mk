@@ -46,20 +46,8 @@ PRODUCT_PACKAGES += \
     libhfp_pal \
     libpaleventnotifier \
     libpalipcservice \
-    libqcompostprocbundle \
-    libqcomvisualizer \
-    libqcomvoiceprocessing \
     libsoundtriggerhal.qti \
-    libvolumelistener \
     qtiaudiohalvendorextn
-
-PRODUCT_PACKAGES += \
-    libbundleaidl \
-    libdownmixaidl \
-    libdynamicsprocessingaidl \
-    libloudnessenhanceraidl \
-    libreverbaidl \
-    libvisualizeraidl
 
 PRODUCT_PACKAGES += \
     android.hardware.audio.common-V1-ndk.vendor \

@@ -77,8 +77,21 @@ vendor/lib64/libmisfpsop.so
 vendor/lib64/libmisops.so
 vendor/lib64/libultrasound_notify.so
 
-# Audio FX modules
+# Audio FX modules - the prebuilt core and effect HALs use effect AIDL V2, so
+# every effect library loaded into audiohalservice has to match it. Like the
+# HALs, they replace the source modules of the same name, whose V3 dependencies
+# they must not mix with their own.
+vendor/lib64/soundfx/libbundleaidl.so;DISABLE_DEPS
+vendor/lib64/soundfx/libdownmixaidl.so;DISABLE_DEPS
+vendor/lib64/soundfx/libdynamicsprocessingaidl.so;DISABLE_DEPS
+vendor/lib64/soundfx/libloudnessenhanceraidl.so;DISABLE_DEPS
+vendor/lib64/soundfx/libqcompostprocbundle.so;DISABLE_DEPS
+vendor/lib64/soundfx/libqcomvisualizer.so;DISABLE_DEPS
+vendor/lib64/soundfx/libqcomvoiceprocessing.so;DISABLE_DEPS
 vendor/lib64/soundfx/libquasar.so
+vendor/lib64/soundfx/libreverbaidl.so;DISABLE_DEPS
+vendor/lib64/soundfx/libvisualizeraidl.so;DISABLE_DEPS
+vendor/lib64/soundfx/libvolumelistener.so;DISABLE_DEPS
 
 # Bluetooth
 vendor/bin/hw/android.hardware.bluetooth@aidl-service-qti
