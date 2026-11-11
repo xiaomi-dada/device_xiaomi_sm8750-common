@@ -55,6 +55,7 @@ vendor/lib64/vendor.qti.hardware.qasr-V2-ndk.so
 vendor/lib64/libagm.so
 vendor/lib64/libagmclient.so
 vendor/lib64/libagmipcservice.so
+vendor/lib64/libagmmixer.so
 vendor/lib64/libar-acdb.so
 vendor/lib64/libar-gpr.so
 vendor/lib64/libar-gsl.so
