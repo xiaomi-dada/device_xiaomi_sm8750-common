@@ -1,0 +1,2 @@
+# Request a screen writeback for the light sensor after every frame
+hal_client_domain(hal_graphics_composer_default, hal_citsensorservice_xiaomi)
