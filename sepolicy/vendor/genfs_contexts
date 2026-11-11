@@ -2,6 +2,9 @@
 genfscon sysfs /devices/platform/soc/soc:xiaomi_fingerprint                                     u:object_r:vendor_sysfs_xiaomi_fingerprint:s0
 genfscon sysfs /devices/virtual/xiaomi_fp                                                       u:object_r:vendor_sysfs_xiaomi_fingerprint:s0
 
+# Scheduler boost (metis)
+genfscon sysfs /module/metis/parameters                                                         u:object_r:vendor_sysfs_metis:s0
+
 # Touch
 genfscon proc /tp_fw_version                                                                    u:object_r:vendor_proc_touch_fw_version:s0
 genfscon sysfs /devices/virtual/touch                                                           u:object_r:vendor_sysfs_xiaomi_touch:s0
