@@ -4,9 +4,30 @@
 -->
 <compatibility-matrix version="1.0" type="framework">
     <hal format="aidl" optional="true">
+        <name>vendor.xiaomi.hardware.aidlbgservice</name>
+        <interface>
+            <name>IBGService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.xiaomi.hardware.camera.synthetic</name>
+        <interface>
+            <name>IVirtualCameraRegistrar</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
         <name>vendor.xiaomi.hardware.fingerprintextension</name>
         <interface>
             <name>IXiaomiFingerprint</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.xiaomi.hardware.quickcamera</name>
+        <interface>
+            <name>IQuickCameraService</name>
             <instance>default</instance>
         </interface>
     </hal>
