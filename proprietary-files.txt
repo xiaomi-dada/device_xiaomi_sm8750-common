@@ -145,6 +145,26 @@ vendor/lib64/libcdsp_default_listener.so
 vendor/lib64/libcdsprpc.so
 vendor/lib64/libmdsprpc.so
 vendor/lib64/libsdsprpc.so
+vendor/lib64/rfs/dsp/libdpp_engine_skel.so
+vendor/lib64/rfs/dsp/libdspCV_skel.so
+vendor/lib64/rfs/dsp/libevadsp.so
+vendor/lib64/rfs/dsp/libfastcvadsp.so
+vendor/lib64/rfs/dsp/libfastcvdsp_skel.so
+vendor/lib64/rfs/dsp/libmobilenet_dsp_frc.so
+vendor/lib64/rfs/dsp/libmobilenet_dsp_frc_networks.so
+vendor/lib64/rfs/dsp/libnsp_ipc_cdsp_skel.so
+vendor/lib64/rfs/dsp/libnspextensionsuperresolutionprovider.so
+vendor/lib64/rfs/dsp/libscveT2T_skel.so
+vendor/lib64/rfs/dsp/libvpp_ais.so
+vendor/lib64/rfs/dsp/libvpp_ais_networks.so
+vendor/lib64/rfs/dsp/libvpp_frc.so
+vendor/lib64/rfs/dsp/libvpp_gfrc_networks.so
+vendor/lib64/rfs/dsp/libvpp_svc_skel.so
+vendor/lib64/rfs/dsp/libvpp_vqa_networks.so
+vendor/lib64/rfs/dsp/libVppAisQnnHtp.so
+vendor/lib64/rfs/dsp/libVppFrcQnnHtp.so
+vendor/lib64/rfs/dsp/libvpt_action_recognition.so
+vendor/lib64/rfs/dsp/libworker_pool.so
 
 # CNE
 vendor/app/CACertService/CACertService.apk
@@ -236,6 +256,11 @@ vendor/lib64/libtaautoload.so
 # Context Hub
 odm/etc/init/android.hardware.contexthub-service.qmi.rc
 vendor/bin/hw/android.hardware.contexthub-service.qmi
+vendor/lib/rfsa/adsp/activity.napp_header
+vendor/lib/rfsa/adsp/activity.so
+vendor/lib/rfsa/adsp/chre_qsh_shim.so
+vendor/lib/rfsa/adsp/nearby.napp_header
+vendor/lib/rfsa/adsp/nearby.so
 
 # Data
 vendor/bin/adpl
