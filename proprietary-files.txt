@@ -15,6 +15,9 @@ vendor/lib64/libloadalgo_stub.so
 
 # Audio
 odm/lib64/libaudioroute_ext.so
+vendor/etc/Hapticsconfig.xml
+vendor/etc/kvh2xml.xml
+vendor/etc/mem_logger_config.xml
 vendor/etc/models/acd/environment.eai
 vendor/etc/models/acd/event.eai
 vendor/etc/models/acd/music.eai
@@ -67,6 +70,7 @@ vendor/lib64/libaudioserviceexampleimpl.so;DISABLE_DEPS
 vendor/lib64/libbluetooth_audio_session_aidl.so:vendor/lib64/libbluetooth_audio_session_aidl_prebuilt.so;FIX_SONAME
 
 # Audio - Xiaomi extensions used by the prebuilt core HAL
+vendor/etc/audio_cloud_control_white_list.xml
 vendor/lib64/libaudiocloudctrl.so
 vendor/lib64/libmidatabase.so
 vendor/lib64/libmisfpsop.so
