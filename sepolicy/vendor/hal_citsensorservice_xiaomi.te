@@ -4,3 +4,6 @@ binder_call(hal_citsensorservice_xiaomi_server, hal_citsensorservice_xiaomi_clie
 hal_attribute_service(hal_citsensorservice_xiaomi, hal_citsensorservice_xiaomi_service)
 
 binder_use(hal_citsensorservice_xiaomi_server)
+
+# The framework sensor service registers display listeners with it
+binder_call(sensor_service_server, hal_citsensorservice_xiaomi_server)
