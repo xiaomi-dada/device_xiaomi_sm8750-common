@@ -15,6 +15,7 @@
 /data/vendor/touch_state(/.*)?                                      u:object_r:vendor_touch_data_file:s0
 
 # Devices
+/dev/dio_dma_mapper_misc                                            u:object_r:vendor_dio_dma_mapper_device:s0
 /dev/ir_spi                                                         u:object_r:ir_spi_device:s0
 /dev/mi_display/disp_feature                                        u:object_r:vendor_displayfeature_device:s0
 /dev/mifp_id                                                        u:object_r:vendor_fingerprint_device:s0
