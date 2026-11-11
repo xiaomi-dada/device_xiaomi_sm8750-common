@@ -1,0 +1,70 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Iscle <albertiscle9@gmail.com>
+Date: Wed, 11 Nov 2026 14:16:54 +0100
+Subject: [PATCH] ims: Do not query the MIUI ROM type
+
+TelephonyBaseUtilsStub only exists in the MIUI framework. Every call to
+isMiuiRom() threw NoClassDefFoundError while the persistent IMS service
+was being created, so it crash-looped. It is never a MIUI ROM here.
+---
+ smali/org/codeaurora/ims/ImsServiceStateReceiver.smali | 4 +---
+ smali/org/codeaurora/ims/ImsServiceSub.smali           | 4 +---
+ smali/org/codeaurora/ims/ImsSubController.smali        | 8 ++------
+ 3 files changed, 4 insertions(+), 12 deletions(-)
+
+diff --git a/smali/org/codeaurora/ims/ImsServiceStateReceiver.smali b/smali/org/codeaurora/ims/ImsServiceStateReceiver.smali
+index 83f9473..1ff481b 100644
+--- a/smali/org/codeaurora/ims/ImsServiceStateReceiver.smali
++++ b/smali/org/codeaurora/ims/ImsServiceStateReceiver.smali
+@@ -780,9 +780,7 @@
+     .locals 3
+ 
+     .line 69
+-    invoke-static {}, Landroid/telephony/TelephonyBaseUtilsStub;->isMiuiRom()Z
+-
+-    move-result v0
++    const/4 v0, 0x0
+ 
+     if-eqz v0, :cond_0
+ 
+diff --git a/smali/org/codeaurora/ims/ImsServiceSub.smali b/smali/org/codeaurora/ims/ImsServiceSub.smali
+index 9a1743a..14c2a9c 100644
+--- a/smali/org/codeaurora/ims/ImsServiceSub.smali
++++ b/smali/org/codeaurora/ims/ImsServiceSub.smali
+@@ -7926,9 +7926,7 @@
+     if-ne p1, v1, :cond_6
+ 
+     .line 528
+-    invoke-static {}, Landroid/telephony/TelephonyBaseUtilsStub;->isMiuiRom()Z
+-
+-    move-result p2
++    const/4 p2, 0x0
+ 
+     if-nez p2, :cond_5
+ 
+diff --git a/smali/org/codeaurora/ims/ImsSubController.smali b/smali/org/codeaurora/ims/ImsSubController.smali
+index 50774de..058d7f7 100644
+--- a/smali/org/codeaurora/ims/ImsSubController.smali
++++ b/smali/org/codeaurora/ims/ImsSubController.smali
+@@ -911,9 +911,7 @@
+     if-nez p1, :cond_2
+ 
+     .line 501
+-    invoke-static {}, Landroid/telephony/TelephonyBaseUtilsStub;->isMiuiRom()Z
+-
+-    move-result v1
++    const/4 v1, 0x0
+ 
+     if-eqz v1, :cond_2
+ 
+@@ -1563,9 +1561,7 @@
+     if-eqz v1, :cond_7
+ 
+     .line 545
+-    invoke-static {}, Landroid/telephony/TelephonyBaseUtilsStub;->isMiuiRom()Z
+-
+-    move-result v1
++    const/4 v1, 0x0
+ 
+     if-eqz v1, :cond_7
+ 
