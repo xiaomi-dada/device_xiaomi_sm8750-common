@@ -6,6 +6,9 @@ type vendor_touch_data_file, file_type, data_file_type;
 # Persist
 type persist_touch_file, file_type, vendor_persist_type;
 
+# Proc
+type vendor_proc_touch_fw_version, fs_type, proc_type;
+
 # Sysfs
 type vendor_sysfs_displayfeature, fs_type, sysfs_type;
 type vendor_sysfs_xiaomi_fingerprint, fs_type, sysfs_type;

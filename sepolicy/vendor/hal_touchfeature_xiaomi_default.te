@@ -24,3 +24,7 @@ allow hal_touchfeature_xiaomi_default vendor_touch_data_file:file create_file_pe
 # Sensor manager client (proximity/palm handling)
 allow hal_touchfeature_xiaomi_default fwk_sensor_service:service_manager find;
 binder_call(hal_touchfeature_xiaomi_default, system_server)
+
+# Glove and water modes, firmware version for the touch selftest
+set_prop(hal_touchfeature_xiaomi_default, vendor_touchfeature_prop)
+allow hal_touchfeature_xiaomi_default vendor_proc_touch_fw_version:file w_file_perms;

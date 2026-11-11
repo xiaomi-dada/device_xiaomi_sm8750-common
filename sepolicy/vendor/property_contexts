@@ -1,6 +1,7 @@
 # Camera
 persist.vendor.EnableP3ColorSpace       u:object_r:vendor_camera_p3enable_prop:s0
 persist.vendor.XDRVersion               u:object_r:vendor_camera_xdrversion_prop:s0
+persist.vendor.cameraid.totalnum        u:object_r:vendor_camera_prop:s0
 vendor.camera.sensor.                   u:object_r:vendor_camera_sensor_prop:s0
 
 # Fingerprint
@@ -11,3 +12,7 @@ persist.vendor.sensor.mischeck          u:object_r:vendor_mischeck_prop:s0
 persist.vendor.sensors.parsedalgo.      u:object_r:vendor_parsedalgo_prop:s0
 persist.vendor.sensors.used.framebuffer u:object_r:vendor_usedframebuffer_prop:s0
 persist.vendor.trigger.cct              u:object_r:vendor_cct_prop:s0
+
+# Touch
+persist.vendor.hostprocess.             u:object_r:vendor_touchfeature_prop:s0
+persist.vendor.touchfeature.            u:object_r:vendor_touchfeature_prop:s0

@@ -3,6 +3,7 @@ genfscon sysfs /devices/platform/soc/soc:xiaomi_fingerprint                     
 genfscon sysfs /devices/virtual/xiaomi_fp                                                       u:object_r:vendor_sysfs_xiaomi_fingerprint:s0
 
 # Touch
+genfscon proc /tp_fw_version                                                                    u:object_r:vendor_proc_touch_fw_version:s0
 genfscon sysfs /devices/virtual/touch                                                           u:object_r:vendor_sysfs_xiaomi_touch:s0
 
 # Xiaomi charger management (mca)
@@ -30,6 +31,7 @@ genfscon sysfs /devices/virtual/xm_power                                        
 genfscon sysfs /devices/virtual/mi_display/disp_feature                                         u:object_r:vendor_sysfs_displayfeature:s0
 
 # Wakeup sources
+genfscon sysfs /devices/platform/soc/8c0000.qcom,qupv3_2_geni_se/88c000.i2c/i2c-7/7-0041/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/c42d000.qcom,spmi/spmi-0/0-00/c42d000.qcom,spmi:qcom,pmk8550@0:pon_hlos@1300/c42d000.qcom,spmi:qcom,pmk8550@0:pon_hlos@1300:pwrkey-bark/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/c42d000.qcom,spmi/spmi-0/0-00/c42d000.qcom,spmi:qcom,pmk8550@0:pon_hlos@1300/c42d000.qcom,spmi:qcom,pmk8550@0:pon_hlos@1300:pwrkey-resin-bark/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/soc:xiaomi_fingerprint/wakeup                              u:object_r:sysfs_wakeup:s0

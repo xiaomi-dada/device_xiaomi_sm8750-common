@@ -30,3 +30,10 @@
 /mnt/vendor/persist/fingerprint(/.*)?                               u:object_r:vendor_fingerprint_data_file:s0
 /mnt/vendor/persist/mi_fp(/.*)?                                     u:object_r:vendor_fingerprint_data_file:s0
 /mnt/vendor/persist/touch(/.*)?                                     u:object_r:persist_touch_file:s0
+
+# Sysfs
+/sys/devices/platform/soc/188101c\.remoteproc-spss/remoteproc/remoteproc[0-9]+/coredump    u:object_r:vendor_sysfs_ssr_toggle:s0
+/sys/devices/platform/soc/3000000\.remoteproc-adsp/remoteproc/remoteproc[0-9]+/coredump    u:object_r:vendor_sysfs_ssr_toggle:s0
+/sys/devices/platform/soc/32300000\.remoteproc-cdsp/remoteproc/remoteproc[0-9]+/coredump   u:object_r:vendor_sysfs_ssr_toggle:s0
+/sys/devices/platform/soc/4080000\.remoteproc-mss/remoteproc/remoteproc[0-9]+/coredump     u:object_r:vendor_sysfs_ssr_toggle:s0
+/sys/devices/platform/soc/a3380000\.remoteproc-soccp/remoteproc/remoteproc[0-9]+/coredump  u:object_r:vendor_sysfs_ssr_toggle:s0
