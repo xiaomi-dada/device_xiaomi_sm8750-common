@@ -45,6 +45,16 @@ lib_fixups: lib_fixups_user_type = {
 }
 
 blob_fixups: blob_fixups_user_type = {
+    # Xiaomi's libaudioroute_ext reads audio_route's internal structures,
+    # whose layout changed in Android 16. Keep the whole prebuilt audio route
+    # stack, which shares audio_route objects, on the Android 14 library.
+    (
+        'odm/lib64/libaudioroute_ext.so',
+        'vendor/lib64/libagm.so',
+        'vendor/lib64/libar-pal.so',
+        'vendor/lib64/libmcs.so',
+    ): blob_fixup()
+        .replace_needed('libaudioroute.so', 'libaudioroute-v34.so'),
     'system_ext/lib64/libwfdnative.so': blob_fixup()
         .add_needed('libinput_shim.so'),
     'vendor/etc/media_codecs_sun.xml': blob_fixup()
