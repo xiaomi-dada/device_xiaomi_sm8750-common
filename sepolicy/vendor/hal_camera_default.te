@@ -1,4 +1,9 @@
-allow hal_camera_default self:capability ipc_lock;
+allow hal_camera_default self:capability { fowner ipc_lock };
+
+allow hal_camera_default fs_bpf_vendor:dir search;
+allow hal_camera_default fs_bpf_vendor:file { read write };
+
+allow hal_camera_default vendor_dio_dma_mapper_device:chr_file rw_file_perms;
 
 # Xiaomi camera services registered by the camera provider
 add_service(hal_camera_default, hal_aidlbgservice_service)
