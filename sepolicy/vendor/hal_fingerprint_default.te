@@ -1,8 +1,17 @@
-# Qualcomm ultrasonic sensor (QFS4008): sensor driver and trusted application
+# Trusted applications of both sensors
 allow hal_fingerprint_default tee_device:chr_file rw_file_perms;
-allow hal_fingerprint_default vendor_qbt_device:chr_file rw_file_perms;
 allow hal_fingerprint_default vendor_dmabuf_qseecom_heap_device:chr_file r_file_perms;
 allow hal_fingerprint_default vendor_dmabuf_qseecom_ta_heap_device:chr_file r_file_perms;
+
+# Qualcomm ultrasonic sensor (QFS4008) driver
+allow hal_fingerprint_default vendor_qbt_device:chr_file rw_file_perms;
+
+# Goodix ultrasonic sensor driver, its netlink events, and the temperatures
+# it calibrates against
+allow hal_fingerprint_default vendor_fingerprint_device:chr_file rw_file_perms;
+allow hal_fingerprint_default self:netlink_socket create_socket_perms_no_ioctl;
+r_dir_file(hal_fingerprint_default, sysfs_thermal)
+r_dir_file(hal_fingerprint_default, vendor_sysfs_battery_supply)
 
 # Finger state lines of the Xiaomi fingerprint driver
 allow hal_fingerprint_default vendor_sysfs_xiaomi_fingerprint:dir search;
