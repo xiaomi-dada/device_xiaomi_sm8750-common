@@ -1,0 +1,6 @@
+binder_call(hal_misys_xiaomi_client, hal_misys_xiaomi_server)
+binder_call(hal_misys_xiaomi_server, hal_misys_xiaomi_client)
+
+hal_attribute_service(hal_misys_xiaomi, hal_misys_xiaomi_service)
+
+binder_use(hal_misys_xiaomi_server)
