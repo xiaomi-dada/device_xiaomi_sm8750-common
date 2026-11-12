@@ -59,7 +59,7 @@
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Modem firmware is split between the modem and modemfirmware partitions
-firmware_directories /vendor/firmware_mnt/image/ /vendor/modem_firmware/image/
+firmware_directories /vendor/firmware_mnt/image/ /vendor/firmware_mnt/image/oemvm/boot/ /vendor/modem_firmware/image/
 
 subsystem dma_heap
     devname uevent_devpath
@@ -115,7 +115,7 @@ subsystem mi_display
 /dev/qmc_cma              0660   radio      radio
 
 #permissions for UFS RPMB BSG device node
-/dev/0:0:0:49476          0600   system     system
+/dev/0:0:0:49476          0660   system     system
 
 #permissions for GPT listener on LUN4
 /dev/0:0:0:4              0600   system     root
