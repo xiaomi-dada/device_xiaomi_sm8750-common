@@ -1056,7 +1056,7 @@ vendor/lib64/libscveObjectTracker_stub.so
 
 # Secure element
 vendor/bin/hw/android.hardware.secure_element-service.qti
-vendor/etc/hal_uuid_map_config.xml:vendor/etc/hal_uuid_map_config.xml;SYMLINK=hal_uuid_map_7.xml,hal_uuid_map_23.xml,hal_uuid_map_29.xml,hal_uuid_map_31.xml;TRYSRCFIRST
+vendor/etc/hal_uuid_map_config.xml
 vendor/etc/init/android.hardware.secure_element-service.qti.rc
 vendor/etc/vintf/manifest/secure_element-service.xml
 vendor/lib64/hw/libEseUtils.so
