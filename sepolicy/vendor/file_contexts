@@ -7,6 +7,7 @@
 /vendor/bin/hw/android\.hardware\.biometrics\.fingerprint-service\.xiaomi u:object_r:hal_fingerprint_default_exec:s0
 /vendor/bin/hw/android\.hardware\.sensors-service\.xiaomi-multihal  u:object_r:hal_sensors_default_exec:s0
 /vendor/bin/hw/vendor\.xiaomi\.hardware\.micharge-service           u:object_r:hal_micharge_xiaomi_default_exec:s0
+/vendor/bin/hw/vendor\.xiaomi\.hardware\.misys\.common-service\.xiaomi u:object_r:hal_misys_xiaomi_default_exec:s0
 /vendor/bin/mi_thermald                                             u:object_r:mi_thermald_exec:s0
 
 # Data
@@ -25,6 +26,7 @@
 /dev/xiaomi-touch-knock                                             u:object_r:touchfeature_device:s0
 
 # Persist
+/mnt/vendor/persist/camera(/.*)?                                    u:object_r:camera_persist_file:s0
 /mnt/vendor/persist/fingerprint(/.*)?                               u:object_r:vendor_fingerprint_data_file:s0
 /mnt/vendor/persist/touch(/.*)?                                     u:object_r:persist_touch_file:s0
 

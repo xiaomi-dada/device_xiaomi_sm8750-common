@@ -14,7 +14,8 @@ add_service(hal_camera_default, hal_camera_aon_service)
 add_service(hal_camera_default, hal_dynamic_camera_service)
 add_service(hal_camera_default, hal_quickcamera_service)
 
-# Sensor calibration on persist
+# Camera and sensor calibration on persist
+r_dir_file(hal_camera_default, camera_persist_file)
 r_dir_file(hal_camera_default, mnt_vendor_file)
 r_dir_file(hal_camera_default, vendor_persist_sensors_file)
 
