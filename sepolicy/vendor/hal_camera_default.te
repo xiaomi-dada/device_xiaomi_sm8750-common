@@ -1,5 +1,8 @@
 allow hal_camera_default self:capability { fowner ipc_lock };
 
+# The super night library decrypts its strings at runtime
+allow hal_camera_default self:process execmem;
+
 allow hal_camera_default fs_bpf_vendor:dir search;
 allow hal_camera_default fs_bpf_vendor:file { read write };
 
