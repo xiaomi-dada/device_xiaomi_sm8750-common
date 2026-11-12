@@ -12,4 +12,10 @@
 
     <!-- Enable EUICC support for offhost card emulation -->
     <bool name="enable_euicc_support">true</bool>
+
+    <!-- Enable device owner provisioning over NFC -->
+    <bool name="enable_nfc_provisioning">true</bool>
+
+    <!-- Let the user choose services of the "other" card emulation category -->
+    <bool name="enable_service_for_category_other">true</bool>
 </resources>
