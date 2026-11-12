@@ -28,6 +28,7 @@ genfscon sysfs /devices/platform/soc/soc:mca_strategy_pd_auth                   
 genfscon sysfs /devices/platform/soc/soc:mca_strategy_quick_charge                              u:object_r:vendor_sysfs_xm_power:s0
 genfscon sysfs /devices/platform/soc/soc:mca_strategy_wireless_revchg_class                     u:object_r:vendor_sysfs_xm_power:s0
 genfscon sysfs /devices/platform/soc/soc:mca_strategy_wireless_revchg_class/wakeup              u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/soc:strategy-fg                                            u:object_r:vendor_sysfs_xm_power:s0
 genfscon sysfs /devices/virtual/xm_power                                                        u:object_r:vendor_sysfs_xm_power:s0
 
 # Display

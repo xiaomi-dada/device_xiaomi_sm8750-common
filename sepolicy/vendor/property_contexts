@@ -14,6 +14,9 @@ persist.vendor.sensors.parsedalgo.      u:object_r:vendor_parsedalgo_prop:s0
 persist.vendor.sensors.used.framebuffer u:object_r:vendor_usedframebuffer_prop:s0
 persist.vendor.trigger.cct              u:object_r:vendor_cct_prop:s0
 
+# Thermal
+vendor.sys.thermal.data.path            u:object_r:vendor_thermal_normal_prop:s0
+
 # Touch
 persist.vendor.hostprocess.             u:object_r:vendor_touchfeature_prop:s0
 persist.vendor.touchfeature.            u:object_r:vendor_touchfeature_prop:s0
