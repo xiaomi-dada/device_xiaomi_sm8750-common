@@ -1248,7 +1248,4 @@ vendor/lib64/vendor.qti.hardware.wifidisplaysession_aidl-V1-ndk.so;MODULE_SUFFIX
 vendor/lib64/vendor.qti.hardware.wifidisplaysessionl@1.0-halimpl.so
 
 # Xiaomi
-odm/lib64/vendor.xiaomi.hardware.mediaeventgatherservice-V1-ndk.so
-vendor/lib64/libmisight.so
-vendor/lib64/libxlog.so
 vendor/lib64/vendor.xiaomi.hardware.aidl.mtdservice-V1-ndk_platform.so
