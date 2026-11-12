@@ -66,6 +66,10 @@ int sendEvent(MiEvent& event) {
     return event.report();
 }
 
+int sendEvent(int, const std::string&) {
+    return 0;
+}
+
 }  // namespace MiSight
 
 }  // namespace android
