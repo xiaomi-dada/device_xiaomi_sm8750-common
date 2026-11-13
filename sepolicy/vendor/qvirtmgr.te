@@ -1,0 +1,1 @@
+allow vendor_qvirtmgr vendor_gunyah_chr_device:chr_file rw_file_perms;

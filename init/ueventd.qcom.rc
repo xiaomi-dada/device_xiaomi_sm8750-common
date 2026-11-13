@@ -59,7 +59,7 @@
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Modem firmware is split between the modem and modemfirmware partitions
-firmware_directories /vendor/firmware_mnt/image/ /vendor/firmware_mnt/image/oemvm/boot/ /vendor/modem_firmware/image/
+firmware_directories /vendor/firmware_mnt/image/ /vendor/firmware_mnt/image/oemvm/boot/ /vendor/modem_firmware/image/ /product/vm-system/trustedvm/boot/
 
 subsystem dma_heap
     devname uevent_devpath
