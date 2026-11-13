@@ -118,8 +118,13 @@ blob_fixups: blob_fixups_user_type = {
         .remove_needed('libheif.so'),
     'system_ext/lib64/libwfdnative.so': blob_fixup()
         .add_needed('libinput_shim.so'),
+    # Android 17 moved AudioSystem from libaudioclient to libaudiobase.
+    'system_ext/lib64/libwfdmmsrc_system.so': blob_fixup()
+        .add_needed('libaudiobase.so')
+        .add_needed('libgui_shim.so'),
     'system_ext/lib64/libwfdservice.so': blob_fixup()
-        .replace_needed('android.media.audio.common.types-V4-cpp.so', 'android.media.audio.common.types-V5-cpp.so'),
+        .replace_needed('android.media.audio.common.types-V4-cpp.so', 'android.media.audio.common.types-V5-cpp.so')
+        .add_needed('libaudiobase.so'),
     # The manifest is shared with the Rust service, which implements V2.
     'product/etc/vintf/manifest/vendor.qti.qvirt-service.xml': blob_fixup()
         .regex_replace('<version>2</version>', '<version>1</version>'),
