@@ -64,15 +64,16 @@ vendor/lib64/liblx-ar_util.so
 vendor/lib64/liblx-osal.so
 
 # Audio - AIDL dependencies of the prebuilt HALs. Xiaomi built these frozen
-# interfaces against their android.media.audio.common.types-V6, so their
-# parcelable layouts differ from the ones generated from source. See
-# xiaomi_audio_aidl_libs in extract-files.py.
+# interfaces against their snapshot of the unfrozen
+# android.media.audio.common.types-V6, so their parcelable layouts differ from
+# the ones generated from source. See xiaomi_audio_aidl_libs in
+# extract-files.py.
 vendor/lib64/android.hardware.audio.common-V3-ndk.so:vendor/lib64/android.hardware.audio.common-V3-ndk_prebuilt.so;FIX_SONAME
 vendor/lib64/android.hardware.audio.core-V2-ndk.so:vendor/lib64/android.hardware.audio.core-V2-ndk_prebuilt.so;FIX_SONAME
 vendor/lib64/android.hardware.audio.core.sounddose-V2-ndk.so:vendor/lib64/android.hardware.audio.core.sounddose-V2-ndk_prebuilt.so;FIX_SONAME
 vendor/lib64/android.hardware.audio.effect-V2-ndk.so:vendor/lib64/android.hardware.audio.effect-V2-ndk_prebuilt.so;FIX_SONAME
 vendor/lib64/android.hardware.bluetooth.audio-V4-ndk.so:vendor/lib64/android.hardware.bluetooth.audio-V4-ndk_prebuilt.so;FIX_SONAME
-vendor/lib64/android.media.audio.common.types-V6-ndk.so
+vendor/lib64/android.media.audio.common.types-V6-ndk.so:vendor/lib64/android.media.audio.common.types-V6-ndk_prebuilt.so;FIX_SONAME
 vendor/lib64/android.hardware.bluetooth.audio-impl.so:vendor/lib64/android.hardware.bluetooth.audio-impl_prebuilt.so;FIX_SONAME
 vendor/lib64/libaudio_aidl_conversion_common_ndk.so:vendor/lib64/libaudio_aidl_conversion_common_ndk_prebuilt.so;DISABLE_DEPS;FIX_SONAME
 vendor/lib64/libaudioserviceexampleimpl.so;DISABLE_DEPS

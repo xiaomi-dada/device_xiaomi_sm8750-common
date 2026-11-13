@@ -44,16 +44,17 @@ lib_fixups: lib_fixups_user_type = {
     ): lib_fixup_vendor_suffix,
 }
 
-# Xiaomi built these frozen audio interfaces against their own
-# android.media.audio.common.types-V6, so their parcelable layouts differ from
-# the ones generated from source. The prebuilt audio stack ships and links
-# Xiaomi's copies under a _prebuilt name.
+# Xiaomi built these frozen audio interfaces against their own snapshot of the
+# unfrozen android.media.audio.common.types-V6, so their parcelable layouts
+# differ from the ones generated from source. The prebuilt audio stack ships
+# and links Xiaomi's copies, types included, under a _prebuilt name.
 xiaomi_audio_aidl_libs = (
     'android.hardware.audio.common-V3-ndk',
     'android.hardware.audio.core-V2-ndk',
     'android.hardware.audio.core.sounddose-V2-ndk',
     'android.hardware.audio.effect-V2-ndk',
     'android.hardware.bluetooth.audio-V4-ndk',
+    'android.media.audio.common.types-V6-ndk',
 )
 
 
