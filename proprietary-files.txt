@@ -769,14 +769,6 @@ vendor/bin/pm-proxy
 vendor/bin/pm-service
 vendor/lib64/libperipheral_client.so
 
-# Power-off alarm
-vendor/bin/hw/vendor.qti.hardware.alarm-service
-vendor/bin/power_off_alarm
-vendor/etc/init/vendor.qti.hardware.alarm-service.rc
-vendor/etc/vintf/manifest/vendor.qti.hardware.alarm.xml
-vendor/lib64/hw/vendor.qti.hardware.alarm-impl.so
-vendor/lib64/vendor.qti.hardware.alarm-V1-ndk.so
-
 # QCC
 system_ext/app/QCC/QCC.apk
 system_ext/bin/qccsyshal_aidl-service
@@ -1068,7 +1060,6 @@ vendor/lib64/libGPTEE_vendor.so
 vendor/lib64/libstnfc-streset.so
 
 # Sensors
-vendor/bin/hw/vendor.qti.hardware.sensorscalibrate-service
 vendor/bin/init.qcom.sensors.sh
 vendor/bin/qsap_dcfd
 vendor/bin/qsap_sensors
@@ -1077,7 +1068,6 @@ vendor/bin/sscrpcd
 vendor/etc/init/dcfd.rc
 vendor/etc/init/init.vendor.sensors.rc
 vendor/etc/init/vendor.qsap.sensors.rc
-vendor/etc/init/vendor.qti.hardware.sensorscalibrate-service.rc
 vendor/etc/init/vendor.sensors.qti.rc
 vendor/etc/init/vendor.sensors.sscrpcd.rc
 vendor/etc/seccomp_policy/qsap_dcfd.policy
@@ -1085,7 +1075,6 @@ vendor/etc/seccomp_policy/qsap_sensors.policy
 vendor/etc/sensors/config/chre_dynamic_sensors.json
 vendor/etc/sensors/sns_odp_config
 vendor/etc/sensors/sns_reg_config
-vendor/etc/vintf/manifest/vendor.qti.hardware.sensorscalibrate.xml
 vendor/lib64/libDcfHalFramework.so
 vendor/lib64/libDcfHalLogger.so
 vendor/lib64/libqsh.so
@@ -1103,7 +1092,6 @@ vendor/lib64/libsnsdiaglog.so
 vendor/lib64/libsnsutils.so
 vendor/lib64/libssc_default_listener.so
 vendor/lib64/sensors.qsh.so
-vendor/lib64/vendor.qti.hardware.sensorscalibrate-V1-ndk.so
 
 # SMC Invoke
 vendor/bin/hlosminkdaemon

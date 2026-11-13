@@ -119,7 +119,6 @@ on init && property:ro.boot.mode=charger
     mount_all /vendor/etc/charger_fw_fstab.qti --early
 
 on charger
-    start vendor.power_off_alarm
     write /sys/kernel/cnss/charger_mode 1
 
 #service vendor.lowi /vendor/bin/sscrpcd
