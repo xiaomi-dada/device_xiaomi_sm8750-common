@@ -118,6 +118,8 @@ blob_fixups: blob_fixups_user_type = {
         .remove_needed('libheif.so'),
     'system_ext/lib64/libwfdnative.so': blob_fixup()
         .add_needed('libinput_shim.so'),
+    'system_ext/lib64/libwfdservice.so': blob_fixup()
+        .replace_needed('android.media.audio.common.types-V4-cpp.so', 'android.media.audio.common.types-V5-cpp.so'),
     'system_ext/priv-app/ims/ims.apk': blob_fixup()
         .apktool_unpack('blob-patches/ims')
         .patch_dir('blob-patches/ims')
