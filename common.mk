@@ -140,8 +140,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
 
 # Fastboot
 PRODUCT_PACKAGES += \
-    android.hardware.fastboot-service.example_recovery \
-    fastbootd
+    android.hardware.fastboot-service.example_recovery
 
 # Graphics
 PRODUCT_COPY_FILES += \
@@ -189,9 +188,6 @@ PRODUCT_PACKAGES += \
     ipacm \
     IPACM_cfg.xml \
     IPACM_Filter_cfg.xml
-
-# Kernel
-PRODUCT_ENABLE_UFFD_GC := true
 
 # Keymint
 PRODUCT_PACKAGES += \
