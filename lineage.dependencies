@@ -4,13 +4,15 @@
     "target_path": "hardware/xiaomi"
   },
   {
-    "repository": "android_kernel_qcom_sm8750",
-    "target_path": "kernel/qcom/sm8750",
-    "branch": "lineage-22.2"
+    "repository": "android_kernel_xiaomi_sm8750",
+    "target_path": "kernel/xiaomi/sm8750"
   },
   {
-    "repository": "android_kernel_qcom_sm8750-modules",
-    "target_path": "kernel/qcom/sm8750-modules",
-    "branch": "lineage-22.2"
+    "repository": "android_kernel_xiaomi_sm8750-devicetrees",
+    "target_path": "kernel/xiaomi/sm8750-devicetrees"
+  },
+  {
+    "repository": "android_kernel_xiaomi_sm8750-modules",
+    "target_path": "kernel/xiaomi/sm8750-modules"
   }
 ]
